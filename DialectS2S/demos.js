@@ -65,20 +65,20 @@ window.DIALECT_DEMOS = [
     {
         "language":  "sichuanese",
         "language_name":  "Sichuanese",
-        "index":  751,
-        "input_text":  "开会的时候，摆一哈咋个才能把公司销量搞起来，有啥子好主意不？",
-        "input_audio":  "audio/sichuanese/751-input.wav",
-        "output_text":  "要搞公司销量嘛，可以从几个方面下手。头一哈，把产品和服务质量提起来，让客户觉得值、信得过；第二哈，多整点实在的促销活动，比如打折、送小礼品这些，把人眼球拉过来；第三哈，把销售路子铺宽点，线上线下都搞起来，客户才找得到你；最后哈，多跟客户摆哈龙门阵，晓得他们想要啥子，服务跟得上，人家才愿意买、才愿意一直买。这几样一齐来，销量自然就上去了嘛！",
-        "output_audio":  "audio/sichuanese/751-output.wav"
+        "index":  28205,
+        "input_text":  "请问这个三角形的内角是30度、60度和90度，它是什么类型的三角形呢？",
+        "input_audio":  "audio/sichuanese/28205-input.wav",
+        "output_text":  "哎哟，内角是30度、60度、90度的三角形嘛，就是直角三角形咯！为啥子嘛——里头有个角刚好是90度，不就叫直角三角形嘛！头一个是30度，第二个是60度，第三个是90度，加起来正好180度，妥妥的三角形哈～",
+        "output_audio":  "audio/sichuanese/28205-output.wav"
     },
     {
         "language":  "sichuanese",
         "language_name":  "Sichuanese",
-        "index":  40627,
-        "input_text":  "年轻人该从好多岁开始想自己的人生目标哦？我咋个觉得有点摸不着头脑喃。",
-        "input_audio":  "audio/sichuanese/40627-input.wav",
-        "output_text":  "其实嘛，年轻人想人生目标，不一定要等到某个具体岁数。好多人都说二十岁左右开始想，但我觉得哈，只要你心头有想法、有感觉，随时都可以开始琢磨。关键是要多试一哈、多学一哈，慢慢找到自己真正喜欢干啥、擅长干啥。哪怕现在觉得有点迷糊，也没关系，走一步是一步，总归会找到自己的路的。",
-        "output_audio":  "audio/sichuanese/40627-output.wav"
+        "index":  44584,
+        "input_text":  "你帮我把这篇英文文章翻成中文嘛？",
+        "input_audio":  "audio/sichuanese/44584-input.wav",
+        "output_text":  "要得嘛！不过头一哈我看不到你发来的文章内容哦。你要是把文章发给我，我马上帮你翻成中文！",
+        "output_audio":  "audio/sichuanese/44584-output.wav"
     },
     {
         "language":  "cantonese",
@@ -119,19 +119,19 @@ window.DIALECT_DEMOS = [
     {
         "language":  "tianjin",
         "language_name":  "Tianjin Dialect",
-        "index":  28115,
-        "input_text":  "你能告诉我“大”和“小”这两个词的同义词吗？",
-        "input_audio":  "audio/tianjin/28115-input.wav",
-        "output_text":  "哎哟，成啊！“大”嘛，有“巨大”“庞大”“辽阔”；“小”呢，有“微小”“细小”“微不足道”。都挺常用的，您看哪个顺嘴就用哪个呗！",
-        "output_audio":  "audio/tianjin/28115-output.wav"
+        "index":  28272,
+        "input_text":  "帮我把这句儿翻译成中文：My favorite color is blue。",
+        "input_audio":  "audio/tianjin/28272-input.wav",
+        "output_text":  "我最待见的颜色是蓝的。",
+        "output_audio":  "audio/tianjin/28272-output.wav"
     },
     {
         "language":  "tianjin",
         "language_name":  "Tianjin Dialect",
-        "index":  29476,
-        "input_text":  "哎，您给讲讲最近这可持续产品的研究都琢磨啥呢？",
-        "input_audio":  "audio/tianjin/29476-input.wav",
-        "output_text":  "哎哟，成啊！不过您得明白，咱这研究没整出啥“划时代的玩意儿”，就图个实在——帮企业把产品做得更耐造、更省地儿、更少糟蹋环境。比方说，有的公司琢磨用再生材料做东西，有的盯住咋优化生产流程让废料少点儿，还有的专挑能回收的材料下手。说白了，就是想让买卖做得长远，不光挣钱，还得对生态负责。",
-        "output_audio":  "audio/tianjin/29476-output.wav"
+        "index":  27324,
+        "input_text":  "今儿个天气咋样啊？我寻思出门带不带伞呢。",
+        "input_audio":  "audio/tianjin/27324-input.wav",
+        "output_text":  "哎哟，您在哪儿啊？我好给您瞅瞅准不准的天气预报！",
+        "output_audio":  "audio/tianjin/27324-output.wav"
     }
 ];
