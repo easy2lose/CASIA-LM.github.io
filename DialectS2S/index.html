@@ -1,507 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="DialectS2S: End-to-End Speech Dialogue Modeling for Low-Resource Chinese Dialects"
-  >
-  <title>DialectS2S</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-  >
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-  <style>
-    :root {
-      --ink: #172033;
-      --muted: #657086;
-      --line: #e6eaf1;
-      --surface: #ffffff;
-      --background: #f6f8fc;
-      --accent: #5d5fef;
-      --accent-soft: #eef0ff;
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DialectS2S: End-to-End Speech Dialogue Modeling for Low-Resource Chinese Dialects">
+    <title>DialectS2S</title>
 
-    * {
-      box-sizing: border-box;
-    }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-    body {
-      min-height: 100vh;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 12% 0%, #eef0ff 0, transparent 28rem),
-        radial-gradient(circle at 95% 12%, #e7f8ff 0, transparent 24rem),
-        var(--background);
-      font-family: "Google Sans", "Noto Sans SC", sans-serif;
-    }
-
-    .page-shell {
-      width: min(1440px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 3rem 0 5rem;
-    }
-
-    .panel {
-      margin-bottom: 2rem;
-      padding: clamp(1.5rem, 4vw, 3.25rem);
-      border: 1px solid rgba(230, 234, 241, 0.9);
-      border-radius: 1.5rem;
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 1.25rem 3.5rem rgba(44, 54, 88, 0.09);
-    }
-
-    .hero-panel {
-      padding-top: clamp(2.75rem, 7vw, 5.5rem);
-      padding-bottom: clamp(2.75rem, 7vw, 5rem);
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 1.25rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      color: #4547bd;
-      background: var(--accent-soft);
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .publication-title {
-      margin: 0 auto 1rem;
-      max-width: 1100px;
-      font-size: clamp(2.5rem, 7vw, 5.6rem);
-      font-weight: 700;
-      letter-spacing: -0.055em;
-      line-height: 0.98;
-    }
-
-    .publication-subtitle {
-      max-width: 980px;
-      margin: 0 auto 1.5rem;
-      color: #35405a;
-      font-size: clamp(1.15rem, 2.4vw, 1.75rem);
-      font-weight: 500;
-      line-height: 1.35;
-    }
-
-    .summary {
-      max-width: 880px;
-      margin: 0 auto 2rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .resource-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-    }
-
-    .resource-buttons .button {
-      border: 0;
-      font-weight: 600;
-      box-shadow: none;
-    }
-
-    .resource-buttons .button.is-dark {
-      background: #20263a;
-    }
-
-    .resource-buttons .coming-soon {
-      color: #747d90;
-      background: #eef1f6;
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .section-heading {
-      margin-bottom: 0.6rem;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: -0.035em;
-    }
-
-    .section-copy {
-      max-width: 900px;
-      margin-bottom: 1.5rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .method-image {
-      display: block;
-      width: 100%;
-      margin: 1.5rem auto 0;
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: #fff;
-    }
-
-    .demo-intro {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .review-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.85rem;
-      border-radius: 999px;
-      color: #176344;
-      background: #e9f8f1;
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .language-section + .language-section {
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .language-heading {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      font-size: 1.45rem;
-      font-weight: 700;
-    }
-
-    .language-count {
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      color: #5558c8;
-      background: var(--accent-soft);
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    .table-container {
-      border: 1px solid var(--line);
-      border-radius: 1rem;
-      background: var(--surface);
-      overflow: auto;
-    }
-
-    .demo-table {
-      min-width: 1040px;
-      margin: 0 !important;
-      background: transparent;
-    }
-
-    .demo-table thead th {
-      padding: 0.9rem 1rem;
-      border-width: 0 0 1px;
-      border-color: var(--line);
-      color: #576078;
-      background: #fafbfe;
-      font-size: 0.78rem;
-      letter-spacing: 0.035em;
-      text-transform: uppercase;
-      vertical-align: middle;
-    }
-
-    .demo-table td {
-      padding: 1.1rem 1rem;
-      border-color: var(--line);
-      line-height: 1.6;
-      vertical-align: middle;
-    }
-
-    .demo-table tbody tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .demo-table .index-cell {
-      width: 74px;
-      color: #737c90;
-      font-variant-numeric: tabular-nums;
-      text-align: center;
-    }
-
-    .demo-table .audio-cell {
-      width: 230px;
-      text-align: center;
-    }
-
-    .demo-table .text-cell {
-      min-width: 260px;
-      max-width: 440px;
-    }
-
-    audio {
-      width: 205px;
-      max-width: 100%;
-      height: 38px;
-    }
-
-    .loading,
-    .load-error {
-      padding: 2rem;
-      border-radius: 1rem;
-      text-align: center;
-    }
-
-    .loading {
-      color: var(--muted);
-      background: #fafbfe;
-    }
-
-    .load-error {
-      color: #9b2f35;
-      background: #fff0f1;
-    }
-
-    footer {
-      padding-top: 1rem;
-      color: #7b8498;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .page-shell {
-        width: min(100% - 1rem, 1440px);
-        padding-top: 0.5rem;
-      }
-
-      .panel {
-        margin-bottom: 1rem;
-        padding: 1.25rem;
-        border-radius: 1rem;
-      }
-
-      .hero-panel {
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="page-shell">
-    <section class="panel hero-panel">
-      <div class="eyebrow">
-        <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
-        End-to-End Speech Dialogue
-      </div>
-      <h1 class="publication-title">DialectS2S</h1>
-      <p class="publication-subtitle">
-        End-to-End Speech Dialogue Modeling for Low-Resource Chinese Dialects
-      </p>
-      <p class="summary">
-        DialectS2S extends OpenS2S to multilingual and low-resource dialect
-        interaction across Mandarin, English, Sichuanese, Cantonese, and the
-        Tianjin dialect. It combines scalable dialect dialogue synthesis with
-        self-aligned speech supervision for more consistent, intelligible, and
-        natural spoken responses.
-      </p>
-      <div class="resource-buttons" aria-label="Project resources">
-        <a
-          class="button is-dark is-rounded"
-          href="https://github.com/easy2lose/OpenS2S"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="icon"><i class="fa-brands fa-github"></i></span>
-          <span>GitHub</span>
-        </a>
-        <span class="button is-rounded coming-soon" aria-disabled="true">
-          <span class="icon"><i class="fa-solid fa-file-lines"></i></span>
-          <span>Paper · Coming Soon</span>
-        </span>
-        <span class="button is-rounded coming-soon" aria-disabled="true">
-          <span class="icon"><i class="fa-solid fa-cube"></i></span>
-          <span>Model · Coming Soon</span>
-        </span>
-        <span class="button is-rounded coming-soon" aria-disabled="true">
-          <span class="icon"><i class="fa-solid fa-database"></i></span>
-          <span>Dataset · Coming Soon</span>
-        </span>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="method-title">
-      <h2 class="section-heading" id="method-title">Self-Aligned Speech Supervision</h2>
-      <p class="section-copy">
-        DialectS2S synthesizes speech targets from the fine-tuned Thinker's text
-        predictions, aligning the Talker's speech supervision with the model's
-        evolved semantic representations during dialect adaptation.
-      </p>
-      <img
-        class="method-image"
-        src="assets/method.png"
-        alt="Comparison between traditional supervised fine-tuning and self-aligned speech supervision"
-      >
-    </section>
-
-    <section class="panel" aria-labelledby="demo-title">
-      <div class="demo-intro">
-        <div>
-          <h2 class="section-heading" id="demo-title">Speech-to-Speech Dialogue Demos</h2>
-          <p class="section-copy">
-            Three reviewed examples are provided for each supported language or
-            dialect. Use the players to compare the speech input with the
-            model's spoken response.
-          </p>
-        </div>
-        <div class="review-badge">
-          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-          ASR consistency checked · Responses manually reviewed
-        </div>
-      </div>
-      <div id="demo-root" aria-live="polite">
-        <div class="loading">Loading dialogue examples…</div>
-      </div>
-    </section>
-
-    <footer>
-      DialectS2S · Open research for multilingual and dialectal speech interaction
-    </footer>
-  </main>
-
-  <script src="demos.js"></script>
-  <script>
-    const languageOrder = [
-      "zh",
-      "en",
-      "sichuanese",
-      "cantonese",
-      "tianjin"
-    ];
-
-    function createElement(tagName, className, text) {
-      const element = document.createElement(tagName);
-      if (className) element.className = className;
-      if (text !== undefined) element.textContent = text;
-      return element;
-    }
-
-    function createAudioPlayer(sourcePath, label) {
-      const audio = createElement("audio");
-      audio.controls = true;
-      audio.preload = "metadata";
-      audio.setAttribute("aria-label", label);
-
-      const source = createElement("source");
-      source.src = sourcePath;
-      source.type = "audio/wav";
-      audio.appendChild(source);
-      audio.append("Your browser does not support the audio element.");
-      return audio;
-    }
-
-    function renderLanguageSection(languageName, examples) {
-      const section = createElement("section", "language-section");
-      const heading = createElement("h3", "language-heading");
-      heading.appendChild(createElement("span", "", languageName));
-      heading.appendChild(
-        createElement("span", "language-count", `${examples.length} examples`)
-      );
-      section.appendChild(heading);
-
-      const tableContainer = createElement("div", "table-container");
-      const table = createElement("table", "table is-fullwidth demo-table");
-      const thead = createElement("thead");
-      const headerRow = createElement("tr");
-      ["Index", "Audio Input", "Transcript", "Audio Output", "Text Response"]
-        .forEach((label) => headerRow.appendChild(createElement("th", "", label)));
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
-
-      const tbody = createElement("tbody");
-      examples.forEach((example) => {
-        const row = createElement("tr");
-        row.appendChild(createElement("td", "index-cell", String(example.index)));
-
-        const inputAudioCell = createElement("td", "audio-cell");
-        inputAudioCell.appendChild(
-          createAudioPlayer(
-            example.input_audio,
-            `${example.language_name} example ${example.index} input`
-          )
-        );
-        row.appendChild(inputAudioCell);
-        row.appendChild(createElement("td", "text-cell", example.input_text));
-
-        const outputAudioCell = createElement("td", "audio-cell");
-        outputAudioCell.appendChild(
-          createAudioPlayer(
-            example.output_audio,
-            `${example.language_name} example ${example.index} output`
-          )
-        );
-        row.appendChild(outputAudioCell);
-        row.appendChild(createElement("td", "text-cell", example.output_text));
-        tbody.appendChild(row);
-      });
-
-      table.appendChild(tbody);
-      tableContainer.appendChild(table);
-      section.appendChild(tableContainer);
-      return section;
-    }
-
-    async function renderDemos() {
-      const root = document.getElementById("demo-root");
-
-      try {
-        const examples = window.DIALECT_DEMOS;
-        if (!Array.isArray(examples)) {
-          throw new Error("Unable to load demo data.");
+    <style>
+        body {
+            font-family: "Google Sans", "Noto Sans", sans-serif;
         }
-        root.replaceChildren();
 
-        languageOrder.forEach((language) => {
-          const languageExamples = examples.filter(
-            (example) => example.language === language
-          );
-          if (languageExamples.length) {
-            root.appendChild(
-              renderLanguageSection(
-                languageExamples[0].language_name,
-                languageExamples
-              )
-            );
-          }
-        });
-      } catch (error) {
-        const message = createElement(
-          "div",
-          "load-error",
-          "The dialogue examples could not be loaded. Please refresh the page."
-        );
-        root.replaceChildren(message);
-        console.error(error);
-      }
+        .page-container {
+            max-width: 1400px;
+        }
+
+        .method-image {
+            display: block;
+            max-width: 100%;
+            margin: 25px auto 0;
+        }
+
+        .demo-table th,
+        .demo-table td {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+        .demo-table .text-cell {
+            min-width: 260px;
+            text-align: left;
+        }
+
+        .demo-table audio {
+            width: 200px;
+        }
+
+        .language-title {
+            margin-top: 35px;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container page-container">
+    <main role="main">
+        <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+            <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title"><b>DialectS2S:</b></h1>
+                <h3 class="title is-3 publication-title">
+                    End-to-End Speech Dialogue Modeling for Low-Resource Chinese Dialects
+                </h3>
+            </div>
+
+            <br>
+
+            <p class="is-size-5 has-text-centered">
+                DialectS2S extends OpenS2S to multilingual and low-resource dialect interaction across
+                Mandarin, English, Sichuanese, Cantonese, and the Tianjin dialect. It combines scalable
+                dialect dialogue synthesis with self-aligned speech supervision for more consistent,
+                intelligible, and natural spoken responses.
+            </p>
+
+            <br><br>
+
+            <div class="column has-text-centered">
+                <span class="link-block">
+                    <a href="https://github.com/easy2lose/OpenS2S" target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Github</span>
+                    </a>
+                </span>
+
+                <span class="link-block">
+                    <span class="button is-normal is-rounded is-light">
+                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                        <span>Paper (Coming Soon)</span>
+                    </span>
+                </span>
+
+                <span class="link-block">
+                    <span class="button is-normal is-rounded is-light">
+                        <span class="icon"><i class="fas fa-cube"></i></span>
+                        <span>Model (Coming Soon)</span>
+                    </span>
+                </span>
+
+                <span class="link-block">
+                    <span class="button is-normal is-rounded is-light">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span>Dataset (Coming Soon)</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+            <h3>Self-Aligned Speech Supervision:</h3>
+            <p class="is-size-5 pt-3">
+                DialectS2S synthesizes speech targets from the fine-tuned model's text predictions,
+                aligning speech supervision with the model's evolving semantic representations during
+                dialect adaptation.
+            </p>
+            <img class="method-image" src="assets/method.png"
+                 alt="Comparison of traditional supervised fine-tuning and self-aligned speech supervision">
+        </div>
+
+        <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+            <h3>Speech-to-Speech Dialogue Demos:</h3>
+            <p class="is-size-5 pt-3">
+                Three examples are provided for each language or dialect. The input transcripts were
+                checked against ASR results, and the responses were manually reviewed.
+            </p>
+            <div id="demo-root"></div>
+        </div>
+    </main>
+</div>
+
+<script src="demos.js"></script>
+<script>
+    const languageOrder = ["zh", "en", "sichuanese", "cantonese", "tianjin"];
+
+    function makeAudio(path, label) {
+        const audio = document.createElement("audio");
+        audio.controls = true;
+        audio.preload = "metadata";
+        audio.setAttribute("aria-label", label);
+
+        const source = document.createElement("source");
+        source.src = path;
+        source.type = "audio/wav";
+        audio.appendChild(source);
+        audio.append("Your browser does not support the audio element.");
+        return audio;
     }
 
-    renderDemos();
-  </script>
+    function makeCell(content, className) {
+        const cell = document.createElement("td");
+        if (className) cell.className = className;
+        if (typeof content === "string") {
+            cell.textContent = content;
+        } else {
+            cell.appendChild(content);
+        }
+        return cell;
+    }
+
+    function renderLanguage(language, examples) {
+        const title = document.createElement("h4");
+        title.className = "language-title";
+        title.textContent = examples[0].language_name;
+
+        const responsive = document.createElement("div");
+        responsive.className = "table-responsive pt-3";
+
+        const table = document.createElement("table");
+        table.className = "table table-hover demo-table";
+        table.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Audio inputs</th>
+                    <th>Transcript</th>
+                    <th>Audio outputs</th>
+                    <th>Text outputs</th>
+                </tr>
+            </thead>
+        `;
+
+        const body = document.createElement("tbody");
+        examples.forEach((example) => {
+            const row = document.createElement("tr");
+            row.appendChild(makeCell(
+                makeAudio(example.input_audio, `${language} input ${example.index}`)
+            ));
+            row.appendChild(makeCell(example.input_text, "text-cell"));
+            row.appendChild(makeCell(
+                makeAudio(example.output_audio, `${language} output ${example.index}`)
+            ));
+            row.appendChild(makeCell(example.output_text, "text-cell"));
+            body.appendChild(row);
+        });
+
+        table.appendChild(body);
+        responsive.appendChild(table);
+        return [title, responsive];
+    }
+
+    const root = document.getElementById("demo-root");
+    const examples = window.DIALECT_DEMOS || [];
+
+    languageOrder.forEach((language) => {
+        const languageExamples = examples.filter((example) => example.language === language);
+        if (languageExamples.length) {
+            renderLanguage(language, languageExamples).forEach((element) => root.appendChild(element));
+        }
+    });
+</script>
 </body>
 </html>
