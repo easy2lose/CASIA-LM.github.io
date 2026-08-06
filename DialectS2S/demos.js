@@ -74,11 +74,11 @@ window.DIALECT_DEMOS = [
     {
         "language":  "sichuanese",
         "language_name":  "Sichuanese",
-        "index":  44584,
-        "input_text":  "你帮我把这篇英文文章翻成中文嘛？",
-        "input_audio":  "audio/sichuanese/44584-input.wav",
-        "output_text":  "要得嘛！不过头一哈我看不到你发来的文章内容哦。你要是把文章发给我，我马上帮你翻成中文！",
-        "output_audio":  "audio/sichuanese/44584-output.wav"
+        "index":  13438,
+        "input_text":  "我想晓得咋个分辨一篇新闻报道是真是假，能给我摆一哈不？",
+        "input_audio":  "audio/sichuanese/13438-input.wav",
+        "output_text":  "当然要得嘛！头一哈，先看它从哪儿来的，是哪个媒体发的，信得过不？二来呢，看它讲的这些事，有没有别的地方也报了，或者网上头大家咋个说的，要是各说各话，就要多留个心眼。三嘛，看它写得清不清楚、严不严谨，有没有乱推断或者不讲理的地方。最后头，还要看它跟其他新闻对不对得上，要是东一个西一个，那就要打个问号咯。这些法子用起来，你就晓得咋个看懂新闻，不被带偏咯！",
+        "output_audio":  "audio/sichuanese/13438-output.wav"
     },
     {
         "language":  "cantonese",
@@ -101,11 +101,11 @@ window.DIALECT_DEMOS = [
     {
         "language":  "cantonese",
         "language_name":  "Cantonese",
-        "index":  2436,
-        "input_text":  "我想寫段Python代碼，可唔可以教下我點樣實現兩個數字相加呀？",
-        "input_audio":  "audio/cantonese/2436-input.wav",
-        "output_text":  "當然得啦！首先用input拎兩個數字，跟住轉做整數，再加埋一齊，最後print出嚟就得喇～",
-        "output_audio":  "audio/cantonese/2436-output.wav"
+        "index":  7918,
+        "input_text":  "貓係哺乳類動物，啱唔啱？",
+        "input_audio":  "audio/cantonese/7918-input.wav",
+        "output_text":  "貓係哺乳類動物，但唔係犬科動物。貓同狗同埋其他哺乳類動物一樣，都係用乳汁餵養幼崽嘅。雖然貓同狗都係哺乳類，但佢哋分屬唔同嘅科——貓屬貓科，狗就屬犬科。簡單啲講，貓係哺乳類，但唔係犬科動物。",
+        "output_audio":  "audio/cantonese/7918-output.wav"
     },
     {
         "language":  "tianjin",
@@ -128,10 +128,10 @@ window.DIALECT_DEMOS = [
     {
         "language":  "tianjin",
         "language_name":  "Tianjin Dialect",
-        "index":  27324,
-        "input_text":  "今儿个天气咋样啊？我寻思出门带不带伞呢。",
-        "input_audio":  "audio/tianjin/27324-input.wav",
-        "output_text":  "哎哟，您在哪儿啊？我好给您瞅瞅准不准的天气预报！",
-        "output_audio":  "audio/tianjin/27324-output.wav"
+        "index":  313,
+        "input_text":  "能给我介绍一下玛丽·居里吗？她有啥重要的贡献呢？",
+        "input_audio":  "audio/tianjin/313-input.wav",
+        "output_text":  "哎哟，玛丽·居里啊，那可是咱科学界顶顶厉害的女将！她跟老公皮埃尔一块儿捣鼓放射性这事儿，硬是整出来俩新元素——钋（pō）跟镭（léi）。这不光让核科学往前蹽了一大截，她自个儿还拿过俩诺贝尔奖，全世界头一个！不光是科学家，她那股子韧劲儿、那份儿坚持，搁谁听都得竖大拇指——真真是了不起！",
+        "output_audio":  "audio/tianjin/313-output.wav"
     }
 ];
