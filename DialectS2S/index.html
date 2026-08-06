@@ -73,15 +73,6 @@
 
             <br>
 
-            <p class="is-size-5 has-text-centered">
-                DialectS2S extends OpenS2S to multilingual and low-resource dialect interaction across
-                Mandarin, English, Sichuanese, Cantonese, and the Tianjin dialect. It combines scalable
-                dialect dialogue synthesis with self-aligned speech supervision for more consistent,
-                intelligible, and natural spoken responses.
-            </p>
-
-            <br><br>
-
             <div class="column has-text-centered">
                 <span class="link-block">
                     <a href="https://github.com/easy2lose/OpenS2S" target="_blank"
@@ -116,21 +107,12 @@
 
         <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
             <h3>Self-Aligned Speech Supervision:</h3>
-            <p class="is-size-5 pt-3">
-                DialectS2S synthesizes speech targets from the fine-tuned model's text predictions,
-                aligning speech supervision with the model's evolving semantic representations during
-                dialect adaptation.
-            </p>
             <img class="method-image" src="assets/method.png"
                  alt="Comparison of traditional supervised fine-tuning and self-aligned speech supervision">
         </div>
 
         <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
             <h3>Speech-to-Speech Dialogue Demos:</h3>
-            <p class="is-size-5 pt-3">
-                Three examples are provided for each language or dialect. The input transcripts were
-                checked against ASR results, and the responses were manually reviewed.
-            </p>
             <div id="demo-root"></div>
         </div>
     </main>
