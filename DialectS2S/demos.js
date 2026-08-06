@@ -128,10 +128,10 @@ window.DIALECT_DEMOS = [
     {
         "language":  "tianjin",
         "language_name":  "Tianjin Dialect",
-        "index":  313,
-        "input_text":  "能给我介绍一下玛丽·居里吗？她有啥重要的贡献呢？",
-        "input_audio":  "audio/tianjin/313-input.wav",
-        "output_text":  "哎哟，玛丽·居里啊，那可是咱科学界顶顶厉害的女将！她跟老公皮埃尔一块儿捣鼓放射性这事儿，硬是整出来俩新元素——钋（pō）跟镭（léi）。这不光让核科学往前蹽了一大截，她自个儿还拿过俩诺贝尔奖，全世界头一个！不光是科学家，她那股子韧劲儿、那份儿坚持，搁谁听都得竖大拇指——真真是了不起！",
-        "output_audio":  "audio/tianjin/313-output.wav"
+        "index":  3574,
+        "input_text":  "全球气候变化到底是怎么回事？能跟我说说原因和影响吗？",
+        "input_audio":  "audio/tianjin/3574-input.wav",
+        "output_text":  "哎哟，您这问得可太对路了！全球气候变化嘛，说白了就是地球这“大空调”出了毛病——气温、雨量、风向都乱了套。主因儿呢，就是咱人自个儿闹的：烧煤、烧油、开车、盖楼、种地……这些事儿干多了，二氧化碳、甲烷这些“捂被子气”就堆得越来越多，地表就越来越烫。",
+        "output_audio":  "audio/tianjin/3574-output.wav"
     }
 ];
