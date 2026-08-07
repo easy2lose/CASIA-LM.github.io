@@ -128,10 +128,10 @@ window.DIALECT_DEMOS = [
     {
         "language":  "tianjin",
         "language_name":  "Tianjin Dialect",
-        "index":  3574,
-        "input_text":  "全球气候变化到底是怎么回事？能跟我说说原因和影响吗？",
-        "input_audio":  "audio/tianjin/3574-input.wav",
-        "output_text":  "哎哟，您这问得可太对路了！全球气候变化嘛，说白了就是地球这“大空调”出了毛病——气温、雨量、风向都乱了套。主因儿呢，就是咱人自个儿闹的：烧煤、烧油、开车、盖楼、种地……这些事儿干多了，二氧化碳、甲烷这些“捂被子气”就堆得越来越多，地表就越来越烫。",
-        "output_audio":  "audio/tianjin/3574-output.wav"
+        "index":  28115,
+        "input_text":  "你能告诉我“大”和“小”这两个词的同义词吗？",
+        "input_audio":  "audio/tianjin/28115-input.wav",
+        "output_text":  "哎哟，成啊！“大”嘛，有“巨大”“庞大”“辽阔”；“小”呢，有“微小”“细小”“微不足道”。都挺常用的，您看哪个顺嘴就用哪个呗！",
+        "output_audio":  "audio/tianjin/28115-output.wav"
     }
 ];
