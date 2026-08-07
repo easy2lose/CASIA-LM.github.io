@@ -118,7 +118,7 @@
     </main>
 </div>
 
-<script src="demos.js?v=20260806-mp3-2"></script>
+<script src="demos.js"></script>
 <script>
     const languageOrder = ["zh", "en", "sichuanese", "cantonese", "tianjin"];
 
@@ -130,7 +130,7 @@
 
         const source = document.createElement("source");
         source.src = path;
-        source.type = "audio/mpeg";
+        source.type = "audio/wav";
         audio.appendChild(source);
         audio.append("Your browser does not support the audio element.");
         return audio;
